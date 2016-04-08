@@ -1,0 +1,49 @@
+<idea-plugin version="2">
+  <id>com.copywrite.slacker</id>
+  <name>Slacker</name>
+  <version>1.0</version>
+  <vendor email="anonymous@anonymous.com" url="http://www.anonymous.com">Anonymous</vendor>
+
+  <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="131"/>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+      <!-- Add your extensions here -->
+      <applicationService serviceImplementation="com.copywrite.slacker.storage.PluginConfigHolder"/>
+      <projectService serviceImplementation="com.copywrite.slacker.storage.PluginProjectConfigHolder"/>
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+      <action id="Slacker" class="com.copywrite.slacker.ShowDialog" text="Slacker">
+          <add-to-group group-id="ToolsMenu" anchor="first"/>
+          <add-to-group group-id="EditorPopupMenu.GoTo" anchor="last"/>
+          <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift BACK_SLASH"/>
+      </action>
+  </actions>
+
+</idea-plugin>
